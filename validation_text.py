@@ -1,17 +1,3 @@
-# number = [0,1,2,3,4,5,6,7,8,9]
-#
-# x=0
-# while x <= 0:
-#     name = input("Give the name of the person you want to get information about: ")
-#     for num in number:
-#         if str(num) in name:
-#             print("Your text contains numbers. Enter the correct name.")
-
-
-# isinstance()
-# split(' ')[0] -> name
-#  split(' ')[1] -> surename
-#
 capital_letters = []
 for x in range(65,91):
     capital_letters.append(chr(x))
@@ -29,4 +15,27 @@ letters = { }
 letters['uppercase'] = tuple(capital_letters)
 letters['lowercase'] = tuple(small_letters)
 letters['special character'] = tuple(special_char)
-print(letters)
+print(letters['special character'])
+
+while True:
+    person = input("Give the name and surname of the person you want to get information about: ")
+    x = 0
+
+    for letter in person:
+        print(letter)
+
+        if letter in letters['lowercase'] or letter in letters['uppercase'] or letter in letters['special character']:
+            try:
+                name = person.split(' ')[0]
+                surname = person.split(' ')[1]
+                x += 1
+            except:
+                print("You only entered one word: name or surname of the person.")
+        else:
+            print("Your text contains numbers or special characters. Enter the correct name.")
+            break
+    if x > 0:
+        break
+
+
+
